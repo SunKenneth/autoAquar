@@ -1,7 +1,7 @@
 #!/home/pi/envs/plants/bin/python
 # -*- coding: utf-8 -*-
 
-import RPi.GPIO as GPIO
+#import RPi.GPIO as GPIO
 import sys, time, os
 from datetime import datetime
 import serial
@@ -10,7 +10,7 @@ import imutils
 import numpy as np
 import matplotlib.pyplot as plot
 
-Serial = serial.Serial("/dev/ttyUSB0",9600 , timeout= 0.5 )
+Serial = serial.Serial("COM9",9600 , timeout= 0.5 )
 
 plotLength = 30
 thLight = 950
@@ -192,7 +192,6 @@ while True:
                     timeList_h = inputData(timeList_h, dataTime, plotLength)
                     print(hList)
                     powerH="ON" if sPower==1 else "OFF"
-
                 elif(sType=="L"):
                     lList = inputData(lList, int(sValue), plotLength)
                     timeList_l = inputData(timeList_l, dataTime, plotLength)
